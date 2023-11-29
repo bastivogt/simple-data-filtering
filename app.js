@@ -20,8 +20,17 @@ function filterButtonClicked(target) {
   });
   target.classList.add("active");
 
-  const filter = target.getAttribute("data-filter");
+  if (document.startViewTransition) {
+    document.startViewTransition(() => {
+      updateStuff(target);
+    });
+  } else {
+    updateStuff(target);
+  }
+}
 
+function updateStuff(button) {
+  const filter = button.getAttribute("data-filter");
   stuffList.forEach((item) => {
     if (filter === "all") {
       item.removeAttribute("hidden");
