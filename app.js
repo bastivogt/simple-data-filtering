@@ -6,6 +6,8 @@ const stuffList = document.querySelectorAll("#stuff > div[data-category]");
 console.log(filterButtons);
 console.log(stuffList);
 
+filterButtonClicked(document.querySelector("button[data-filter='all']"));
+
 filterButtons.forEach((button) => {
   button.addEventListener("click", (evt) => {
     filterButtonClicked(evt.target);
